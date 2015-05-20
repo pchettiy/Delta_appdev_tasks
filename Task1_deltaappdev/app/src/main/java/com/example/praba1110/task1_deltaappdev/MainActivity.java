@@ -1,6 +1,8 @@
 package com.example.praba1110.task1_deltaappdev;
 
-import android.support.annotation.NonNull;
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,19 +15,17 @@ public class MainActivity extends ActionBarActivity {
     int counter=0;
     static String c="counter";
     @Override
-    public void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        savedInstanceState.getInt(c);
-    }
-    @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(savedInstanceState!= null)
-            savedInstanceState.getInt(c);
+
         setContentView(R.layout.activity_main);
         TextView t=(TextView)findViewById(R.id.text);
-        t.setText(""+counter);
 
+        SharedPreferences settings;
+        settings=this.getSharedPreferences("save",Context.MODE_APPEND);
+        counter=settings.getInt(c,counter);
+        t.setText(""+counter);
 
 
     }
@@ -35,8 +35,18 @@ public class MainActivity extends ActionBarActivity {
         counter++;
         TextView text=(TextView)findViewById(R.id.text);
         text.setText(""+counter);
+        save(this,counter);
 
 
+    }
+    public void save(Context context,Integer counter)
+    {
+        SharedPreferences settings;
+        SharedPreferences.Editor editor;
+        settings=context.getSharedPreferences("save",Context.MODE_APPEND);
+        editor=settings.edit();
+        editor.putInt(c,counter);
+        editor.commit();
     }
 
     @Override
@@ -62,16 +72,6 @@ public class MainActivity extends ActionBarActivity {
 
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
-
-        // Save UI state changes to the savedInstanceState.
-        // This bundle will be passed to onCreate if the process is
-        // killed and restarted.
-
-        savedInstanceState.putInt(c, counter);
-        super.onSaveInstanceState(savedInstanceState);
-    }
 
 
 }
