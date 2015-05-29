@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Delta task2</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="Names">
+        <item>Adam D Angelo</item>
+        <item>Aishwarya Rai</item>
+        <item>Beyonce</item>
+        <item>Emma Watson</item>
+        <item>Larry Page</item>
+        <item>Mark Zuckerberg</item>
+        <item>Steve Jobs</item>
+        <item>Taylor Swift</item>
+
+    </string-array>
+
+</resources>
