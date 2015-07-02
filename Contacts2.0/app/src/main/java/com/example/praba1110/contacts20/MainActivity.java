@@ -46,7 +46,7 @@ public class MainActivity extends ActionBarActivity {
 
 
     }
-
+//Adding feature of double pressing back to exit
     @Override
     public void onBackPressed() {
         if (doubleBackToExitPressedOnce) {
