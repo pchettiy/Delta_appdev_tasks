@@ -2,9 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:clickable="true"
-    android:background="#ff8cff71"
     android:focusable="true"
-    android:focusableInTouchMode="true">
+    android:focusableInTouchMode="true"
+    android:outlineProvider="paddedBounds"
+    android:background="#fffcffa1">
 
     <ImageView
         android:layout_width="60dp"
@@ -28,18 +29,19 @@
 
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="60dp"
+        android:layout_width="40dp"
         android:layout_height="60dp"
-        android:text="Delete"
+        android:text="X"
         android:id="@+id/delete"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="false"
-        android:background="#ffebe6e6"
-        android:textColor="#ffb22a22" />
+        android:textColor="#ffb22a22"
+        android:clickable="true"
+        android:background="@color/button_material_light" />
 
     <Button
-        style="?android:attr/buttonStyleSmall"
+        style="@style/Base.Theme.AppCompat"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:text="Edit"
@@ -47,6 +49,17 @@
         android:layout_alignParentTop="true"
         android:layout_toLeftOf="@+id/delete"
         android:layout_toStartOf="@+id/delete"
-        android:background="#fffdffff" />
+        android:background="#fffffcf2"
+        android:clickable="true"
+        android:textColor="#ff2105ff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-------------------------------------------------------------------------------"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/img_row"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
